@@ -1,0 +1,5 @@
+bricks:
+  domain:
+    path: bricks/domain
+  feature:
+    path: bricks/feature
