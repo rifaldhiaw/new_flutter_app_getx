@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'detail_controller.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends GetView<DetailController> {
   const DetailScreen({Key? key}) : super(key: key);
 
   @override
@@ -14,7 +14,7 @@ class DetailScreen extends StatelessWidget {
       ),
       body: SafeArea(
           child: Center(
-        child: Obx(() => Text(DetailController.to.value.value?.name ?? "")),
+        child: Obx(() => Text(controller.value.value?.name ?? "")),
       )),
     );
   }

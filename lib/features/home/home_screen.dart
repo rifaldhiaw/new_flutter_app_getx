@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import 'home_controller.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetView<HomeController> {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -15,13 +15,12 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Obx(() => ListView(
-              children: HomeController.to.values
+              children: controller.values
                   .map(
                     (e) => ListTile(
                       title: Text(e.name),
                       onTap: () {
-                        HomeController.to.setSelectedValue(e);
-                        Get.toNamed(Routes.detail);
+                        Get.toNamed(Routes.detail, arguments: e);
                       },
                     ),
                   )
@@ -29,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             )),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => HomeController.to.addValue(),
+        onPressed: () => controller.addValue(),
         child: const Icon(Icons.add),
       ),
     );

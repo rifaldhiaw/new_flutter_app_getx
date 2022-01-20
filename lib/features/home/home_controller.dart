@@ -8,19 +8,12 @@ class HomeController extends GetxController {
 
   final DataRepository dataRepository;
 
-  static HomeController to = Get.find();
-
   final values = <MyData>[].obs;
-  final selectedValue = Rx<MyData?>(null);
 
   @override
   void onInit() {
     values.value = dataRepository.getAll();
     super.onInit();
-  }
-
-  setSelectedValue(MyData target) {
-    selectedValue.value = target;
   }
 
   void addValue() {

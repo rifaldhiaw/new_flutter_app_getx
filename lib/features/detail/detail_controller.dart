@@ -1,10 +1,14 @@
-import 'package:new_flutter_app_getx/features/home/home_controller.dart';
+import 'package:new_flutter_app_getx/domains/data/data_model.dart';
 import 'package:get/get.dart';
 
 class DetailController extends GetxController {
   DetailController();
 
-  static DetailController to = Get.find();
+  final value = Rx<MyData?>(null);
 
-  final value = HomeController.to.selectedValue;
+  @override
+  void onInit() {
+    value.value = Get.arguments;
+    super.onInit();
+  }
 }

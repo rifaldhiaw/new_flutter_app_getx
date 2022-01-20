@@ -20,7 +20,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       enableLog: true,
       initialRoute: Routes.initial,
-      defaultTransition: Transition.fade,
+      defaultTransition: Transition.native,
       getPages: Routes.routes,
       title: "app_title".tr,
       theme: ThemeConfig.createLightTheme(Colors.blueGrey),
